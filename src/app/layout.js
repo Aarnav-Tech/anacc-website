@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import "@/styles/globals.css";
+import { BsInstagram } from "react-icons/bs";
 
 export default function RootLayout({ children }) {
   return (
@@ -43,11 +44,11 @@ export default function RootLayout({ children }) {
                 Quick Links
               </h2>
               <ul className="space-y-1 font-medium">
-                <li><a href="/" className="hover:text-purple-500 transition">Home</a></li>
-                <li><a href="/anacc" className="hover:text-purple-500 transition">Departments</a></li>
-                <li><a href="/tech4ce" className="hover:text-purple-500 transition">TECH4CE</a></li>
-                <li><a href="/about" className="hover:text-purple-500 transition">About</a></li>
-                <li><a href="/contact" className="hover:text-purple-500 transition">Contact</a></li>
+                <li><NavbarLink href="/">Home</NavbarLink></li>
+                <li><NavbarLink href="/anacc">Departments</NavbarLink></li>
+                <li><NavbarLink href="/tech4ce">TECH4CE</NavbarLink></li>
+                <li><NavbarLink href="/about">About</NavbarLink></li>
+                <li><NavbarLink href="/contact">Contact</NavbarLink></li>
               </ul>
             </div>
 
@@ -59,7 +60,7 @@ export default function RootLayout({ children }) {
               <p className="mb-2 font-medium">Follow & DM us on Instagram for queries:</p>
               <div className="flex items-center gap-2 text-purple-500 font-medium">
                 <a href="https://www.instagram.com/amity_anacc" target="_blank" rel="noopener noreferrer">
-                  <svg className="w-6 h-6" /> @amity_anacc
+                  <BsInstagram className="w-6 h-6 inline" /> @amity_anacc
                 </a>
               </div>
             </div>
@@ -71,5 +72,15 @@ export default function RootLayout({ children }) {
         </footer>
       </body>
     </html>
+  );
+}
+
+// Small helper to fix the <a> ESLint issue
+import Link from "next/link";
+function NavbarLink({ href, children }) {
+  return (
+    <Link href={href} className="hover:text-purple-500 transition">
+      {children}
+    </Link>
   );
 }

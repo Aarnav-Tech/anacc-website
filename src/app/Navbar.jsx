@@ -58,19 +58,26 @@ export default function Navbar() {
               />
             </Link>
 
-            <nav className="hidden md:flex gap-6 flex-1 justify-end">
+            <nav className="hidden md:flex gap-6 flex-1 justify-end relative">
               {links.map((link) => {
                 const isActive = pathname === link.href;
                 return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`hover:text-purple-500 transition ${
-                      isActive ? "text-white font-bold" : "text-white"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
+                  <div key={link.name} className="relative">
+                    <Link
+                      href={link.href}
+                      className={`hover:text-purple-500 transition ${
+                        isActive ? "text-white font-bold" : "text-white"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                    {isActive && (
+                      <motion.div
+                        layoutId="underline"
+                        className="absolute left-0 bottom-0 w-full h-0.5 bg-purple-500 rounded shadow-[0_0_10px_#9f7aea]"
+                      />
+                    )}
+                  </div>
                 );
               })}
             </nav>
