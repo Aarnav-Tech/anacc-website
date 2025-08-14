@@ -38,6 +38,7 @@ export default function Tech4cePage() {
       type: "Individual Participation",
       venue: "3rd Floor CS Lab",
       software: "HackerRank",
+      whatsappLink: "https://chat.whatsapp.com/ETosnMhjS2fGnSc0QZHdje?mode=ems_copy_t",
       guidelines: [
         "Each participant gets 40 minutes to complete 3 coding tasks on HackerRank.",
         "Each task has points based on difficulty.",
@@ -55,6 +56,7 @@ export default function Tech4cePage() {
       type: "Individual Participation",
       venue: "Audi 2",
       software: "Any",
+      whatsappLink: "https://chat.whatsapp.com/CwWRW1zmNsuEfBE8gbPQ46?mode=ems_copy_t",
       guidelines: [
         "Create a futuristic product/service for 2035 integrating technology (AI, IoT, robotics, biotech, space tech, etc.)",
         "The product should solve a problem or improve daily life",
@@ -73,6 +75,7 @@ export default function Tech4cePage() {
       type: "Individual Participation",
       venue: "Middle Wing Computer Lab",
       software: "Any",
+      whatsappLink: "https://chat.whatsapp.com/HwBzRdANI8TAHpnQcTpCMo?mode=ems_copy_t",
       guidelines: [
         "Participants get 20 minutes to create art using AI tools",
         "Theme provided on the spot",
@@ -86,6 +89,7 @@ export default function Tech4cePage() {
       type: "Individual Participation",
       venue: "Audi 2",
       software: "Any",
+      whatsappLink: "https://chat.whatsapp.com/Hj3ggYGLAYALaCKwD0ulXU?mode=ems_copy_t",
       guidelines: [
         "Click 2 photos showing clear contrast between subjects, moods, or elements",
         "Only basic editing allowed (exposure, contrast, color, cropping)",
@@ -102,9 +106,6 @@ export default function Tech4cePage() {
 
   return (
     <div className="relative min-h-screen text-white font-space-grotesk p-8 md:p-16 text-lg md:text-xl">
-      {/* Overlay for readability */}
-      <div className="" />
-
       {/* Content */}
       <div className="relative z-10">
         {/* Header */}
@@ -144,7 +145,9 @@ export default function Tech4cePage() {
 
         {/* General Instructions */}
         <section className="mb-12">
-          <h2 className="text-3xl font-space-mono text-purple-500 mb-4">General Instructions</h2>
+          <h2 className="text-3xl font-space-mono text-purple-500 mb-4">
+            General Instructions
+          </h2>
           <ul className="list-disc list-inside space-y-3 text-gray-300">
             <li>Online registration closes at 11:59 PM on 17th August 2025. No entries will be accepted beyond this deadline.</li>
             <li>Registration to be done at TECH4CE 2025-26.</li>
@@ -159,7 +162,9 @@ export default function Tech4cePage() {
         <section className="space-y-12">
           {events.map((event) => (
             <AnimatedCard key={event.title}>
-              <h3 className="text-2xl md:text-3xl font-space-mono text-purple-500 mb-2">{event.title}</h3>
+              <h3 className="text-2xl md:text-3xl font-space-mono text-purple-500 mb-2">
+                {event.title}
+              </h3>
               <p className="text-gray-300 mb-2">
                 Classes: {event.classes} | {event.type} | Venue: {event.venue} | Software: {event.software}
               </p>
@@ -173,6 +178,12 @@ export default function Tech4cePage() {
               <ul className="list-disc list-inside text-gray-300 space-y-1">
                 {event.criteria.map((c, i) => <li key={i}>{c}</li>)}
               </ul>
+
+              {event.whatsappLink && (
+                <div className="mt-4 flex justify-center">
+                  <AnimatedButton href={event.whatsappLink}>Join WhatsApp Group</AnimatedButton>
+                </div>
+              )}
             </AnimatedCard>
           ))}
         </section>
