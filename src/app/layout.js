@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <Navbar />
 
         {/* Page Content */}
-        <main className="relative z-10 pt-32">{children}</main>
+        <main className="relative z-10 pt-8 md:pt-20">{children}</main>
 
         {/* Footer */}
         <footer className="mt-12 w-full p-6 backdrop-blur-md bg-white/10 border-t border-gray-700 shadow-xl relative z-10">

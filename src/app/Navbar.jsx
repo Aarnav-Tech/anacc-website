@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { BsInstagram } from "react-icons/bs";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,13 +41,13 @@ export default function Navbar() {
             animate={{ y: 0 }}
             exit={{ y: -150 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between w-[90%] max-w-6xl p-4 md:p-6 rounded-2xl backdrop-blur-md bg-white/10 border border-gray-700 shadow-xl"
+            className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between w-[90%] max-w-6xl p-3 md:p-5 rounded-2xl backdrop-blur-md bg-white/10 border border-gray-700 shadow-xl"
           >
             <Link href="/">
               <motion.img
                 src="/ANACCLOGO.png"
                 alt="ANACC Logo"
-                className="h-10 md:h-12 max-w-[120px] object-contain"
+                className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 style={{
@@ -58,7 +57,7 @@ export default function Navbar() {
               />
             </Link>
 
-            <nav className="hidden md:flex gap-6 flex-1 justify-end relative">
+            <nav className="hidden md:flex gap-5 flex-1 justify-end relative text-sm font-medium">
               {links.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -112,7 +111,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
-            className="md:hidden fixed top-[100px] left-1/2 transform -translate-x-1/2 w-[90%] max-w-5xl flex flex-col gap-4 p-6 rounded-2xl backdrop-blur-md bg-white/10 text-white shadow-xl z-50"
+            className="md:hidden fixed top-[90px] left-1/2 transform -translate-x-1/2 w-[90%] max-w-5xl flex flex-col gap-3 p-5 rounded-2xl backdrop-blur-md bg-white/10 text-white shadow-xl z-50 text-sm font-medium"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
