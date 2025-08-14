@@ -1,6 +1,8 @@
+'use client';
 import Navbar from "./Navbar";
 import "@/styles/globals.css";
 import { BsInstagram } from "react-icons/bs";
+import TargetCursor from "../../ani/TargetCursor/TargetCursor";
 
 export default function RootLayout({ children }) {
   return (
@@ -9,8 +11,14 @@ export default function RootLayout({ children }) {
         <title>ANACC | Amity Noida AI & CS Club</title>
         <link rel="icon" href="/favicon.ico" />
       </head>
+
       <body className="font-space-grotesk text-white min-h-screen relative">
         {/* Fullscreen Background */}
+        <div>
+        <TargetCursor
+          spinDuration={0}
+          hideDefaultCursor
+        />
         <div
           className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/bg.jpg')" }}
@@ -26,11 +34,11 @@ export default function RootLayout({ children }) {
         <main className="relative z-10 pt-8 md:pt-20">{children}</main>
 
         {/* Footer */}
-        <footer className="cursor-auto mt-12 w-full p-6 backdrop-blur-md bg-white/10 border-t border-gray-700 shadow-xl relative z-10">
+        <footer className="mt-12 w-full p-6 backdrop-blur-md bg-white/10 border-t border-gray-700 shadow-xl relative z-10">
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
             {/* About */}
             <div>
-              <h2 className="text-purple-500 text-xl mb-2 font-space-mono font-semibold">
+              <h2 className=" text-purple-500 text-xl mb-2 font-space-mono font-semibold">
                 ANACC
               </h2>
               <p className="font-medium">
@@ -43,12 +51,12 @@ export default function RootLayout({ children }) {
               <h2 className="text-purple-500 text-xl mb-2 font-space-mono font-semibold">
                 Quick Links
               </h2>
-              <ul className="space-y-1 font-medium">
-                <li><NavbarLink href="/">Home</NavbarLink></li>
-                <li><NavbarLink href="/anacc">Departments</NavbarLink></li>
-                <li><NavbarLink href="/tech4ce">TECH4CE</NavbarLink></li>
-                <li><NavbarLink href="/about">About</NavbarLink></li>
-                <li><NavbarLink href="/contact">Contact</NavbarLink></li>
+              <ul className="space-y-1 font-medium cursor-none">
+                <li className="cursor-target"><NavbarLink href="/">Home</NavbarLink></li>
+                <li className="cursor-target"><NavbarLink href="/anacc">Departments</NavbarLink></li>
+                <li className="cursor-target"><NavbarLink href="/tech4ce">TECH4CE</NavbarLink></li>
+                <li className="cursor-target"><NavbarLink href="/about">About</NavbarLink></li>
+                <li className="cursor-target"><NavbarLink href="/contact">Contact</NavbarLink></li>
               </ul>
             </div>
 
@@ -58,9 +66,9 @@ export default function RootLayout({ children }) {
                 Contact
               </h2>
               <p className="mb-2 font-medium">Follow & DM us on Instagram for queries:</p>
-              <div className="flex items-center gap-2 text-purple-500 font-medium">
+              <div className="cursor-target flex items-center gap-2 text-purple-500 font-medium">
                 <a href="https://www.instagram.com/amity_anacc" target="_blank" rel="noopener noreferrer">
-                  <BsInstagram className="w-6 h-6 inline" /> @amity_anacc
+                  <BsInstagram className="cursor-target w-6 h-6 inline" /> @amity_anacc
                 </a>
               </div>
             </div>
@@ -70,6 +78,7 @@ export default function RootLayout({ children }) {
             &copy; {new Date().getFullYear()} ANACC - Amity Noida AI & CS Club. All rights reserved.
           </p>
         </footer>
+        </div>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import TargetCursor from "../../ani/TargetCursor/TargetCursor";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,13 +42,13 @@ export default function Navbar() {
             animate={{ y: 0 }}
             exit={{ y: -150 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="cursor-auto fixed top-3 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between w-[90%] max-w-6xl p-3 md:p-5 rounded-4xl backdrop-blur-md bg-white/10 border border-gray-700 shadow-xl text-lg font-medium"
+            className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between w-[90%] max-w-6xl p-3 md:p-5 rounded-4xl backdrop-blur-md bg-white/10 border border-gray-700 shadow-xl text-lg font-medium"
           >
             <Link href="/">
               <motion.img
                 src="/ANACCLOGO.png"
                 alt="ANACC Logo"
-                className="cursor-targeth-10 w-10 md:h-12 md:w-12 rounded-full object-cover"
+                className="cursor-target h-10 w-10 md:h-12 md:w-12 rounded-full object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 style={{
@@ -64,7 +65,7 @@ export default function Navbar() {
                   <div key={link.name} className="relative">
                     <Link
                       href={link.href}
-                      className={`hover:text-purple-500 transition ${
+                      className={`cursor-target hover:text-purple-500 transition ${
                         isActive ? "text-white font-bold" : "text-white"
                       }`}
                     >

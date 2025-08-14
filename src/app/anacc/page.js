@@ -28,16 +28,13 @@ const departments = [
 export default function Anacc() {
   return (
     <div className="relative min-h-screen px-6 py-12">
-      {/* TargetCursor now wraps everything inside this div */}
-      <TargetCursor spinDuration={0} hideDefaultCursor={true} />
-
       <main>
         <h1 className="text-4xl text-purple-500 mb-8">ANACC Departments</h1>
-        <div className="cursor-target grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {departments.map((dpt, i) => (
             <motion.div
               key={i}
-              className="p-6 bg-gray-900 rounded-xl hover:bg-purple-900 transition cursor-none"
+              className="cursor-target p-6 bg-gray-900 rounded-xl hover:bg-purple-900 transition cursor-none"
               whileHover={{ scale: 1.05 }}
             >
               <h2 className="text-2xl mb-2">{dpt.name}</h2>

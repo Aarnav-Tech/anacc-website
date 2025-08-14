@@ -107,10 +107,6 @@ export default function Tech4cePage() {
 
   return (
     <div className="z-10">
-      <TargetCursor 
-        spinDuration={0}
-        hideDefaultCursor={true}
-      />
       <div className="relative min-h-screen text-white font-space-grotesk p-8 md:p-16 text-lg md:text-xl">
         {/* Content */}
         <div className="relative z-10">

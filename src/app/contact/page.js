@@ -4,12 +4,7 @@ import TargetCursor from "../../../ani/TargetCursor/TargetCursor";
 
 export default function Contact() {
   return (
-    <div>
-      <TargetCursor
-        spinDuration={0}
-        hideDefaultCursor={true}
-      />
-
+    <div className="z-10">
     <div className="max-w-5xl mx-auto px-6 py-12 text-base md:text-lg">
       <h1 className="text-3xl md:text-4xl font-space-mono text-purple-500 mb-6">
         Contact Us
