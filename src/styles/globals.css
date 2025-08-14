@@ -27,10 +27,4 @@ a {
   text-decoration: none;
 }
 
-@font-face {
-  font-family: 'Cheddar Gothic Stencil';
-  src: url('/public/fonts/cheddar.otf') format('otf');
-  font-weight: normal;
-  font-style: normal;
-}
 

@@ -10,7 +10,7 @@ export default function About() {
       </h1>
 
       <p className="mb-4">
-        ANACC (Amity Noida AI & CS Club) brings together students interested in programming, AI, product development, and creative design. We meet every Tuesday in zero period to collaborate, learn, and work on exciting projects.
+        ANACC (Amity Noida AI & CS Club) brings together students interested in programming, AI, product development, and creative design. We meet every Tuesday in zero period (senior computer lab) to collaborate, learn, and work on exciting projects.
       </p>
 
       <p className="mb-4">

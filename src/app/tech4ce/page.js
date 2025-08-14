@@ -20,7 +20,7 @@ const AnimatedButton = ({ href, children }) => (
 
 const AnimatedCard = ({ children }) => (
   <motion.div
-    className="bg-gray-900 p-6 md:p-8 rounded-lg"
+    className="bg-gray-900/80 p-6 md:p-8 rounded-lg backdrop-blur-sm"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.3 }}
@@ -101,79 +101,86 @@ export default function Tech4cePage() {
   ];
 
   return (
-    <div className="bg-black text-white font-space-grotesk min-h-screen p-8 md:p-16 text-lg md:text-xl">
-      {/* Header */}
-      <header className="text-center mb-12">
-        <motion.h1
-  className="text-5xl md:text-6xl mb-4 text-white font-extrabold"
-  style={{
-    textShadow: "0 0 8px #ffffff, 0 0 16px #ffffff, 0 0 24px #ffffff"
-  }}
-  animate={{
-    textShadow: [
-      "0 0 8px #ffffff, 0 0 16px #ffffff, 0 0 24px #ffffff",
-      "0 0 12px #ffffff, 0 0 24px #ffffff, 0 0 36px #ffffff"
-    ]
-  }}
-  transition={{
-    repeat: Infinity,
-    repeatType: "reverse",
-    duration: 1.5,
-    ease: "easeInOut"
-  }}
->
-  Tech4CE 2025
-</motion.h1>
+    <div className="relative min-h-screen text-white font-space-grotesk p-8 md:p-16 text-lg md:text-xl">
+      {/* Overlay for readability */}
+      <div className="" />
 
-        <p className="text-xl md:text-2xl">Tech Competition for the Next Generation of Innovators</p>
-        <p className="text-base md:text-lg mt-2 text-gray-400">
-          AN INITIATIVE BY AMITY NOIDA AI & CS CLUB
-        </p>
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Header */}
+        <header className="text-center mb-12">
+          <motion.h1
+            className="text-5xl md:text-6xl mb-4 font-extrabold underline"
+            style={{
+              textShadow: "0 0 8px #ffffff, 0 0 16px #ffffff, 0 0 24px #ffffff"
+            }}
+            animate={{
+              textShadow: [
+                "0 0 8px #ffffff, 0 0 16px #ffffff, 0 0 24px #ffffff",
+                "0 0 12px #ffffff, 0 0 24px #ffffff, 0 0 36px #ffffff"
+              ]
+            }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "reverse",
+              duration: 1.5,
+              ease: "easeInOut"
+            }}
+          >
+            TECH4CE 2025
+          </motion.h1>
 
-        {/* Register Now Button */}
-        <div className="mt-6">
+          <p className="text-xl md:text-2xl">
+            Tech Competition for the Next Generation of Innovators
+          </p>
+          <p className="text-base md:text-lg mt-2 text-gray-300">
+            AN INITIATIVE BY AMITY NOIDA AI & CS CLUB
+          </p>
+
+          <div className="mt-6">
+            <AnimatedButton href={registrationLink}>Register Now</AnimatedButton>
+          </div>
+        </header>
+
+        {/* General Instructions */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-space-mono text-purple-500 mb-4">General Instructions</h2>
+          <ul className="list-disc list-inside space-y-3 text-gray-300">
+            <li>Online registration closes at 11:59 PM on 17th August 2025. No entries will be accepted beyond this deadline.</li>
+            <li>Registration to be done at TECH4CE 2025-26.</li>
+            <li>Report to respective venues by 7:50 AM sharp on the day of the event. Late entries may not be entertained.</li>
+            <li>The school is not responsible for the security or safety of any equipment or personal belongings brought by participants.</li>
+            <li>The decision of the judges will be final and binding.</li>
+            <li>All participants are requested to join the official WhatsApp group via the TECH4CE link for updates.</li>
+          </ul>
+        </section>
+
+        {/* Events */}
+        <section className="space-y-12">
+          {events.map((event) => (
+            <AnimatedCard key={event.title}>
+              <h3 className="text-2xl md:text-3xl font-space-mono text-purple-500 mb-2">{event.title}</h3>
+              <p className="text-gray-300 mb-2">
+                Classes: {event.classes} | {event.type} | Venue: {event.venue} | Software: {event.software}
+              </p>
+
+              <p className="mt-2 text-gray-300 font-semibold">Guidelines:</p>
+              <ul className="list-disc list-inside text-gray-300 space-y-1">
+                {event.guidelines.map((g, i) => <li key={i}>{g}</li>)}
+              </ul>
+
+              <p className="mt-2 text-gray-300 font-semibold">Judgement Criteria:</p>
+              <ul className="list-disc list-inside text-gray-300 space-y-1">
+                {event.criteria.map((c, i) => <li key={i}>{c}</li>)}
+              </ul>
+            </AnimatedCard>
+          ))}
+        </section>
+
+        {/* Bottom Register Button */}
+        <div className="text-center mt-12">
           <AnimatedButton href={registrationLink}>Register Now</AnimatedButton>
         </div>
-      </header>
-
-      {/* General Instructions */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-space-mono text-purple-500 mb-4">General Instructions</h2>
-        <ul className="list-disc list-inside space-y-3 text-gray-300">
-          <li>Online registration closes at 11:59 PM on 17th August 2025. No entries will be accepted beyond this deadline.</li>
-          <li>Registration to be done at TECH4CE 2025-26.</li>
-          <li>Report to respective venues by 7:50 AM sharp on the day of the event. Late entries may not be entertained.</li>
-          <li>The school is not responsible for the security or safety of any equipment or personal belongings brought by participants.</li>
-          <li>The decision of the judges will be final and binding.</li>
-          <li>All participants are requested to join the official WhatsApp group via the TECH4CE link for updates.</li>
-        </ul>
-      </section>
-
-      {/* Events */}
-      <section className="space-y-12">
-        {events.map((event) => (
-          <AnimatedCard key={event.title}>
-            <h3 className="text-2xl md:text-3xl font-space-mono text-purple-500 mb-2">{event.title}</h3>
-            <p className="text-gray-300 mb-2">
-              Classes: {event.classes} | {event.type} | Venue: {event.venue} | Software: {event.software}
-            </p>
-
-            <p className="mt-2 text-gray-300 font-semibold">Guidelines:</p>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              {event.guidelines.map((g, i) => <li key={i}>{g}</li>)}
-            </ul>
-
-            <p className="mt-2 text-gray-300 font-semibold">Judgement Criteria:</p>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              {event.criteria.map((c, i) => <li key={i}>{c}</li>)}
-            </ul>
-          </AnimatedCard>
-        ))}
-      </section>
-
-      {/* Bottom Register Button */}
-      <div className="text-center mt-12">
-        <AnimatedButton href={registrationLink}>Register Now</AnimatedButton>
       </div>
     </div>
   );
