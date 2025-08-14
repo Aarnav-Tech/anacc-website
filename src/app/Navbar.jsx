@@ -41,7 +41,7 @@ export default function Navbar() {
             animate={{ y: 0 }}
             exit={{ y: -150 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between w-[90%] max-w-6xl p-3 md:p-5 rounded-2xl backdrop-blur-md bg-white/10 border border-gray-700 shadow-xl"
+            className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between w-[90%] max-w-6xl p-3 md:p-5 rounded-4xl backdrop-blur-md bg-white/10 border border-gray-700 shadow-xl text-lg font-medium"
           >
             <Link href="/">
               <motion.img
@@ -111,7 +111,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.nav
-            className="md:hidden fixed top-[90px] left-1/2 transform -translate-x-1/2 w-[90%] max-w-5xl flex flex-col gap-3 p-5 rounded-2xl backdrop-blur-md bg-white/10 text-white shadow-xl z-50 text-sm font-medium"
+            className="md:hidden fixed top-[90px] left-1/2 transform -translate-x-1/2 w-[90%] max-w-5xl flex flex-col gap-3 p-5 rounded-2xl backdrop-blur-md bg-white/10 text-white shadow-xl z-50 text-lg font-medium"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
