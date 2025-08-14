@@ -1,0 +1,36 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+@import 'tailwindcss';
+
+/* Global body styles */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headers use Space Mono */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Optional: smooth scroll for internal links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tailwind base overrides (if needed) */
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Cheddar Gothic Stencil';
+  src: url('/public/fonts/cheddar.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
