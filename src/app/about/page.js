@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
 import { BsInstagram } from "react-icons/bs";
+import TargetCursor from "../../../ani/TargetCursor/TargetCursor";
 
 export default function About() {
   return (
+    <div>
+      <TargetCursor spinDuration={0} hideDefaultCursor={true} />
     <div className="max-w-5xl mx-auto px-6 py-12 text-base md:text-lg">
       <h1 className="text-3xl md:text-4xl font-space-mono text-purple-500 mb-6">
         About ANACC
@@ -24,11 +27,12 @@ export default function About() {
           href="https://www.instagram.com/amity_anacc"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-purple-500 hover:text-white transition transform hover:scale-99"
+          className="cursor-target flex items-center gap-2 text-purple-500 hover:text-white transition transform hover:scale-99"
         >
           <BsInstagram className="w-6 h-6" /> @amity_anacc
         </a>
       </div>
+    </div>
     </div>
   );
 }

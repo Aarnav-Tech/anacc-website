@@ -1,9 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import TargetCursor from "../../ani/TargetCursor/TargetCursor";
 
 export default function Home() {
   return (
+    <div className="z-10">
+      <TargetCursor 
+        spinDuration={0}
+        hideDefaultCursor={true}
+      />
     <main className="min-h-screen flex flex-col items-center justify-center px-6">
       <motion.h1
         className="text-5xl md:text-7xl text-purple-500 mb-4"
@@ -29,17 +35,18 @@ export default function Home() {
       >
         <Link
           href="/anacc"
-          className="px-6 py-3 bg-purple-500 rounded-lg hover:bg-purple-600 transition"
+          className="cursor-target cursor-none px-6 py-3 bg-purple-500 rounded-lg hover:bg-purple-600 transition"
         >
           See Departments
         </Link>
         <Link
           href="/tech4ce"
-          className="px-6 py-3 border border-purple-500 rounded-lg hover:bg-purple-500 hover:text-black transition"
+          className="cursor-target cursor-none px-6 py-3 border border-purple-500 rounded-lg hover:bg-purple-500 hover:text-black transition"
         >
           TECH4CE
         </Link>
       </motion.div>
     </main>
+    </div>
   );
 }

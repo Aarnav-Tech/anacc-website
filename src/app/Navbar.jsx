@@ -41,13 +41,13 @@ export default function Navbar() {
             animate={{ y: 0 }}
             exit={{ y: -150 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between w-[90%] max-w-6xl p-3 md:p-5 rounded-4xl backdrop-blur-md bg-white/10 border border-gray-700 shadow-xl text-lg font-medium"
+            className="cursor-auto fixed top-3 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-between w-[90%] max-w-6xl p-3 md:p-5 rounded-4xl backdrop-blur-md bg-white/10 border border-gray-700 shadow-xl text-lg font-medium"
           >
             <Link href="/">
               <motion.img
                 src="/ANACCLOGO.png"
                 alt="ANACC Logo"
-                className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover"
+                className="cursor-targeth-10 w-10 md:h-12 md:w-12 rounded-full object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 style={{
