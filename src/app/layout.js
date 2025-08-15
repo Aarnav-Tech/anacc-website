@@ -3,8 +3,24 @@ import Navbar from "./Navbar";
 import "@/styles/globals.css";
 import { BsInstagram } from "react-icons/bs";
 import TargetCursor from "../../ani/TargetCursor/TargetCursor";
+import { useState, useEffect } from "react";
 
 export default function RootLayout({ children }) {
+  const [enableCursor, setEnableCursor] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      const isLargeScreen = window.innerWidth >= 1024; // Tailwind 'lg' breakpoint
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      // Enable cursor if large screen AND not touch device
+      setEnableCursor(isLargeScreen && !isTouchDevice);
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -15,76 +31,79 @@ export default function RootLayout({ children }) {
       <body className="font-space-grotesk text-white min-h-screen relative">
         {/* Fullscreen Background */}
         <div>
-        <TargetCursor
-          spinDuration={0}
-          hideDefaultCursor
-        />
-        <div
-          className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/bg.jpg')" }}
-        ></div>
+          {/* Render TargetCursor only if enabled */}
+          {enableCursor && <TargetCursor spinDuration={0} hideDefaultCursor />}
 
-        {/* Semi-transparent overlay */}
-        <div className="fixed inset-0 -z-5 bg-black/50"></div>
+          <div
+            className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/bg.jpg')" }}
+          ></div>
 
-        {/* Client-side Navbar */}
-        <Navbar />
+          {/* Semi-transparent overlay */}
+          <div className="fixed inset-0 -z-5 bg-black/50"></div>
 
-        {/* Page Content */}
-        <main className="relative z-10 pt-8 md:pt-20">{children}</main>
+          {/* Client-side Navbar */}
+          <Navbar />
 
-        {/* Footer */}
-        <footer className="mt-12 w-full p-6 backdrop-blur-md bg-white/10 border-t border-gray-700 shadow-xl relative z-10">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-            {/* About */}
-            <div>
-              <h2 className=" text-purple-500 text-xl mb-2 font-space-mono font-semibold">
-                ANACC
-              </h2>
-              <p className="font-medium">
-                Students meet every Tuesday in senior computer lab for discussions, workshops, and competitions.
-              </p>
-            </div>
+          {/* Page Content */}
+          <main className="relative z-10 pt-20 md:pt-20">{children}</main>
 
-            {/* Quick Links */}
-            <div>
-              <h2 className="text-purple-500 text-xl mb-2 font-space-mono font-semibold">
-                Quick Links
-              </h2>
-              <ul className="space-y-1 font-medium cursor-none">
-                <li className="cursor-target"><NavbarLink href="/">Home</NavbarLink></li>
-                <li className="cursor-target"><NavbarLink href="/anacc">Departments</NavbarLink></li>
-                <li className="cursor-target"><NavbarLink href="/tech4ce">TECH4CE</NavbarLink></li>
-                <li className="cursor-target"><NavbarLink href="/about">About</NavbarLink></li>
-                <li className="cursor-target"><NavbarLink href="/contact">Contact</NavbarLink></li>
-              </ul>
-            </div>
+          {/* Footer */}
+          <footer className="mt-12 w-full p-6 backdrop-blur-md bg-white/10 border-t border-gray-700 shadow-xl relative z-10">
+            <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+              {/* About */}
+              <div>
+                <h2 className=" text-purple-500 text-xl mb-2 font-space-mono font-semibold">
+                  ANACC
+                </h2>
+                <p className="font-medium">
+                  Students meet every Tuesday in senior computer lab for discussions, workshops, and competitions.
+                </p>
+              </div>
 
-            {/* Contact */}
-            <div>
-              <h2 className="text-purple-500 text-xl mb-2 font-space-mono font-semibold">
-                Contact
-              </h2>
-              <p className="mb-2 font-medium">Follow & DM us on Instagram for queries:</p>
-              <div className="cursor-target flex items-center gap-2 text-purple-500 font-medium">
-                <a href="https://www.instagram.com/amity_anacc" target="_blank" rel="noopener noreferrer">
-                  <BsInstagram className="cursor-target w-6 h-6 inline" /> @amity_anacc
-                </a>
+              {/* Quick Links */}
+              <div>
+                <h2 className="text-purple-500 text-xl mb-2 font-space-mono font-semibold">
+                  Quick Links
+                </h2>
+                <ul className="space-y-1 font-medium cursor-none">
+                  <li className="cursor-target"><NavbarLink href="/">Home</NavbarLink></li>
+                  <li className="cursor-target"><NavbarLink href="/anacc">Departments</NavbarLink></li>
+                  <li className="cursor-target"><NavbarLink href="/tech4ce">TECH4CE</NavbarLink></li>
+                  <li className="cursor-target"><NavbarLink href="/about">About</NavbarLink></li>
+                  <li className="cursor-target"><NavbarLink href="/contact">Contact</NavbarLink></li>
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div>
+                <h2 className="text-purple-500 text-xl mb-2 font-space-mono font-semibold">
+                  Contact
+                </h2>
+                <p className="mb-2 font-medium">Follow & DM us on Instagram for queries:</p>
+                <div className="cursor-target flex items-center gap-2 text-purple-500 font-medium">
+                  <a
+                    href="https://www.instagram.com/amity_anacc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <BsInstagram className="cursor-target w-6 h-6 inline" /> @amity_anacc
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <p className="text-center text-gray-500 mt-6 text-sm md:text-base font-medium">
-            &copy; {new Date().getFullYear()} ANACC - Amity Noida AI & CS Club. All rights reserved.
-          </p>
-        </footer>
+            <p className="text-center text-gray-500 mt-6 text-sm md:text-base font-medium">
+              &copy; {new Date().getFullYear()} ANACC - Amity Noida AI & CS Club. All rights reserved.
+            </p>
+          </footer>
         </div>
       </body>
     </html>
   );
 }
 
-// Small helper to fix the <a> ESLint issue
+// Small helper link component
 import Link from "next/link";
 function NavbarLink({ href, children }) {
   return (
