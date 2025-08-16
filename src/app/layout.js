@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
             loop
             muted
             playsInline
-            poster="/bg.jpg" // fallback image while video loads
+            poster="/gb.png" // fallback image while video loads
           >
             <source src="/bg.mp4" type="video/mp4" />
             {/* Fallback image if video isn't supported */}
@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
                 <h2 className="text-purple-500 text-xl mb-2 font-space-mono font-semibold">
                   Quick Links
                 </h2>
-                <ul className="space-y-1 font-medium cursor-none">
+                <ul className="font-medium cursor-none">
                   <li className="cursor-target"><NavbarLink href="/">Home</NavbarLink></li>
                   <li className="cursor-target"><NavbarLink href="/anacc">Departments</NavbarLink></li>
                   <li className="cursor-target"><NavbarLink href="/tech4ce">TECH4CE</NavbarLink></li>
