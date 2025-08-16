@@ -17,6 +17,7 @@ export default function Navbar() {
     { name: "TECH4CE", href: "/tech4ce" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+    { name: "Our Team", href: "/team" },
   ];
 
   useEffect(() => {

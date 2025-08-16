@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         {/* Fullscreen Background */}
         <div>
           {/* Render TargetCursor only if enabled */}
-          {enableCursor && <TargetCursor spinDuration={0} hideDefaultCursor />}
+          {enableCursor && <TargetCursor spinDuration={3} hideDefaultCursor />}
 
           <div
             className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
@@ -72,6 +72,7 @@ export default function RootLayout({ children }) {
                   <li className="cursor-target"><NavbarLink href="/tech4ce">TECH4CE</NavbarLink></li>
                   <li className="cursor-target"><NavbarLink href="/about">About</NavbarLink></li>
                   <li className="cursor-target"><NavbarLink href="/contact">Contact</NavbarLink></li>
+                  <li className="cursor-target"><NavbarLink href="/team">Our Team</NavbarLink></li>
                 </ul>
               </div>
 
