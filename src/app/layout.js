@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { BsInstagram } from "react-icons/bs";
 import TargetCursor from "../../ani/TargetCursor/TargetCursor";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function RootLayout({ children }) {
   const [enableCursor, setEnableCursor] = useState(false);
@@ -34,10 +35,23 @@ export default function RootLayout({ children }) {
           {/* Render TargetCursor only if enabled */}
           {enableCursor && <TargetCursor spinDuration={3} hideDefaultCursor />}
 
-          <div
-            className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/bg.jpg')" }}
-          ></div>
+          {/* Background video with fallback image */}
+          <video
+            className="fixed inset-0 -z-10 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/bg.jpg" // fallback image while video loads
+          >
+            <source src="/bg.mp4" type="video/mp4" />
+            {/* Fallback image if video isn't supported */}
+            <img
+              src="/bg.jpg"
+              alt="Background"
+              className="fixed inset-0 -z-10 w-full h-full object-cover"
+            />
+          </video>
 
           {/* Semi-transparent overlay */}
           <div className="fixed inset-0 -z-5 bg-black/50"></div>
@@ -105,7 +119,6 @@ export default function RootLayout({ children }) {
 }
 
 // Small helper link component
-import Link from "next/link";
 function NavbarLink({ href, children }) {
   return (
     <Link href={href} className="hover:text-purple-500 transition">
