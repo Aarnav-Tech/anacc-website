@@ -8,10 +8,10 @@ import TargetCursor from '../../../ani/TargetCursor/TargetCursor';
 const profiles = [
   { name: "Vinayak Gupta", title: "Head of Department, Creative Design", handle: "vinayakgupta3110", status: "Online", avatarUrl: "/images/Vinayak.png", instagramUrl: "https://instagram.com/vinayakgupta3110" },
   { name: "Tejaswa Pratap", title: "Head of Department, Programming", handle: "tejaswapratap31", status: "Online", avatarUrl: "/images/Tejaswa.png", instagramUrl: "https://instagram.com/tejaswapratap31" },
+  { name: "Aarnav Lokesh", title: "Web Developer, UI/UX Designer", handle: "jumprfit", status: "Online", avatarUrl: "/images/Aarnav.jpg", telegramUrl: "https://t.me/jumprfit" },
   { name: "Panini Rao", title: "Head of Department, Product Pitching", handle: "_panini.2302_", status: "Online", avatarUrl: "/images/Panini.png", instagramUrl: "https://instagram.com/_panini.2302_" },
   { name: "Reeva Sachdev", title: "Head of Department, AI & ML", handle: "reeva1.7", status: "Online", avatarUrl: "/images/Reeva.jpg", instagramUrl: "https://instagram.com/reeva1.7" },
   { name: "Shreya Mathur", title: "Head of Department, Marketing", handle: "shreyaaa_mathur", status: "Online", avatarUrl: "/images/Shreya.jpg", instagramUrl: "https://instagram.com/shreyaaa_mathur" },
-  { name: "Aarnav Lokesh", title: "Web Developer, UI/UX Designer", handle: "jumprfit", status: "Online", avatarUrl: "/images/Aarnav.jpg", telegramUrl: "https://t.me/jumprfit" },
 ];
 
 function ProfileCard({ profile }) {
