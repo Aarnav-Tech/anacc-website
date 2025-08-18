@@ -81,12 +81,10 @@ export default function RootLayout({ children }) {
                   Quick Links
                 </h2>
                 <ul className="font-medium cursor-none">
-                  <li className="cursor-target"><NavbarLink href="/">Home</NavbarLink></li>
-                  <li className="cursor-target"><NavbarLink href="/anacc">Departments</NavbarLink></li>
-                  <li className="cursor-target"><NavbarLink href="/tech4ce">TECH4CE</NavbarLink></li>
-                  <li className="cursor-target"><NavbarLink href="/about">About</NavbarLink></li>
-                  <li className="cursor-target"><NavbarLink href="/contact">Contact</NavbarLink></li>
-                  <li className="cursor-target"><NavbarLink href="/team">Our Team</NavbarLink></li>
+                  <li><NavbarLink href="/" className="cursor-target">Home</NavbarLink></li>
+                  <li><NavbarLink href="/anacc" className="cursor-target">Departments</NavbarLink></li>
+                  <li><NavbarLink href="/tech4ce" className="cursor-target">TECH4CE</NavbarLink></li>
+                  <li><NavbarLink href="/team" className="cursor-target">Our Team</NavbarLink></li>
                 </ul>
               </div>
 
@@ -96,11 +94,12 @@ export default function RootLayout({ children }) {
                   Contact
                 </h2>
                 <p className="mb-2 font-medium">Follow & DM us on Instagram for queries:</p>
-                <div className="cursor-target flex items-center gap-2 text-purple-500 font-medium">
+                <div className="flex items-center gap-2 text-purple-500 font-medium">
                   <a
                     href="https://www.instagram.com/amity_anacc"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="cursor-target"
                   >
                     <BsInstagram className="cursor-target w-6 h-6 inline" /> @amity_anacc
                   </a>
@@ -121,7 +120,7 @@ export default function RootLayout({ children }) {
 // Small helper link component
 function NavbarLink({ href, children }) {
   return (
-    <Link href={href} className="hover:text-purple-500 transition">
+    <Link href={href} className="hover:text-purple-500 transition cursor-target">
       {children}
     </Link>
   );
