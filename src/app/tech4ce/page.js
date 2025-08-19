@@ -86,8 +86,8 @@ export default function Tech4cePage() {
       ],
       winners: [
         { name: "Janya Mongia | XI-G 🥇", position: "1st" },
-        { name: "Aman Gupta   | XI-I 🥈", position: "2nd" },
-        { name: "Tiya Sakhiya | XI-K 🥉", position: "3rd" },
+        { name: "Aman Gupta   | X-I 🥈", position: "2nd" },
+        { name: "Tiya Sakhuja | XII-H 🥉", position: "3rd" },
       ],
     },
     {
