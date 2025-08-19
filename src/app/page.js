@@ -91,7 +91,7 @@ export default function HomeAbout() {
               href="/tech4ce"
               className="cursor-target block text-center px-6 py-3 w-full sm:w-auto border border-purple-500 text-purple-500 font-medium rounded-lg hover:bg-purple-500 hover:text-white transition"
             >
-              TECH4CE
+              TECH4CE Winners
             </Link>
           </motion.div>
         </motion.div>
