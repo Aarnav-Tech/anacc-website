@@ -141,7 +141,7 @@ export default function Tech4cePage() {
           photo: ["/winners/2.jpg", "/winners/2b.jpg"],
         },
         {
-          name: "Mahak Sharma",
+          name: "Mahakk Sharma",
           position: "3rd 🥉",
           photo: "/winners/3.jpg",
         },
